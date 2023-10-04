@@ -1,6 +1,7 @@
 package Base;
 
 import Pages.BookStorePage;
+import Pages.BookStoreWithLoginPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -17,8 +18,9 @@ public class BaseTest {
     public static WebDriver driver;
     public WebDriverWait wait;
     public HomePage homePage;
-    public BookStorePage bookStorePage;
+    public BookStoreWithLoginPage bookStoreWithLoginPage;
     public LoginPage loginPage;
+    public BookStorePage bookStorePage;
 
     @BeforeClass
     public void setUp() {
@@ -28,12 +30,13 @@ public class BaseTest {
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         homePage = new HomePage();
-        bookStorePage = new BookStorePage();
+        bookStoreWithLoginPage = new BookStoreWithLoginPage();
         loginPage = new LoginPage();
+        bookStorePage = new BookStorePage();
     }
 
     @AfterClass
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 }

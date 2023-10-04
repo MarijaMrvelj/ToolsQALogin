@@ -28,4 +28,8 @@ public class LoginPage extends BaseTest {
         passwordField.sendKeys(password);
         loginButton.click();
     }
+
+    public String loginPageUrl() {
+        return driver.getCurrentUrl();
+    }
 }
